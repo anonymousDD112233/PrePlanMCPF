@@ -208,7 +208,7 @@ def run_instances():
                 run_ordered_removal_loop(AgentsLocations, GoalsLocations, delaysProbDictForExecution,
                                          order, choose_time_per_row, instance, records, num_of_goals)
 
-            elif howToRemove == "AESTE":
+            elif howToRemove == "SEER":
                 graphObj = GraphG(mapAndDim, GoalsLocations)
                 t0 = time.time()
                 inactiveAgents = compute_smart_remove_agents(
@@ -216,14 +216,14 @@ def run_instances():
                 )
                 choose_time = time.time() - t0
                 num_removed = len(inactiveAgents)
-                print(f"M: {mapName}, A: {num_of_agents}, G: {num_of_goals}, I: {instance}, Mode: AESTE, R: {num_removed}", flush=True)
+                print(f"M: {mapName}, A: {num_of_agents}, G: {num_of_goals}, I: {instance}, Mode: SEER, R: {num_removed}", flush=True)
                 numComponentsBefore = nx.number_connected_components(graphObj.G)
                 removedLocs = [AgentsLocations[a] for a in inactiveAgents]
                 for loc in removedLocs:
                     mapAndDim["Map"][loc] = 1
                     graphObj.G.remove_node(loc)
                 assert nx.number_connected_components(graphObj.G) == numComponentsBefore, \
-                    f"Removal changed components! I={instance}, Mode=AESTE, R={num_removed}"
+                    f"Removal changed components! I={instance}, Mode=SEER, R={num_removed}"
                 result = run_Test(AgentsLocations, GoalsLocations, delaysProbDictForExecution, inactiveAgents, graphObj)
                 records.append(build_record(instance, result, num_removed, num_of_goals, choose_time))
                 for loc in removedLocs:

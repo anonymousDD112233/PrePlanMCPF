@@ -1,10 +1,10 @@
-# Pre-planning Agent Exclusion for Multiagent Combinatorial Path Finding under Stochastic Delays
+# Agent Exclusion Strategies for Multi-Agent Combinatorial Path Finding
 
 This repository contains the official code accompanying our **AAAI 2027** submission:  
-> **Pre-planning Agent Exclusion for Multiagent Combinatorial Path Finding under Stochastic Delays**
+> **Agent Exclusion Strategies for Multi-Agent Combinatorial Path Finding**
 
 This paper examines whether all available agents should participate in Multi-Agent Combinatorial Path Finding (MCPF) under stochastic execution delays. 
-It introduces PAES, a setting in which agents may be excluded before planning, and AESTE, an adaptive method that selects which agents to exclude using both delay probabilities and travel distances to improve solvability, runtime, and service quality.
+It introduces PAES, a setting in which agents may be excluded before planning, and SEER, an adaptive method that selects which agents to exclude using both delay probabilities and travel distances to improve solvability, runtime, and service quality.
 
 This repository includes full source code, benchmark data, and experiment scripts to enable **full reproducibility** of the results presented in the paper.
 
